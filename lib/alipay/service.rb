@@ -44,11 +44,9 @@ module Alipay
       end
 
       params = {
-        'service'        => 'create_direct_pay_by_user',
-        '_input_charset' => 'utf-8',
-        'partner'        => options[:pid] || Alipay.pid,
-        'seller_id'      => options[:pid] || Alipay.pid,
-        'payment_type'   => '1'
+        'method'        => 'alipay.trade.app.pay',
+        'charset'        => 'utf-8',
+        'version'        => '1.0',
       }.merge(params)
 
       request_uri(params, options).to_s
